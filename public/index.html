@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BLACKGIFT AI</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; display:flex; height:100vh; }
+    .container { margin:auto; width:640px; box-shadow:0 0 10px rgba(0,0,0,0.1); padding:16px; border-radius:8px; }
+    #messages { height: 55vh; overflow:auto; border:1px solid #eee; padding:8px; border-radius:6px; background:#fafafa; }
+    .msg { margin:8px 0; }
+    .user { text-align:right; color:#0b66ff; }
+    .bot { text-align:left; color:#222; }
+    #controls { margin-top:8px; display:flex; gap:8px; }
+    input[type="text"] { flex:1; padding:8px; font-size:16px; }
+    button { padding:8px 12px; font-size:16px; }
+    .hint { font-size:12px; color:#666; margin-top:6px; display:flex; justify-content:space-between; align-items:center; }
+    #auth { display:flex; gap:8px; align-items:center; }
+  </style>
+  <!-- Firebase SDK (compat for simple copy/paste) -->
+  <script src="https://www.gstatic.com/firebasejs/10.15.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.15.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h2>BLACKGIFT AI</h2>
+    <div id="auth">
+      <button id="signin">Sign in with Google</button>
+      <button id="signout" style="display:none">Sign out</button>
+      <div id="userinfo" style="margin-left:12px;"></div>
+    </div>
+
+    <div id="messages" role="log" aria-live="polite"></div>
+    <div id="controls">
+      <input id="input" type="text" placeholder="Nyora mubvunzo wako muChiShona..." />
+      <button id="send">Tumira</button>
+      <button id="reset" title="Reset conversation">Reset</button>
+    </div>
+    <div class="hint"><span>Replies are generated in Shona and may be spoken using Speech Synthesis (if available).</span><span id="status"></span></div>
+  </div>
+
+  <script src="firebase-config.js"></script>
+  <script src="chat.js"></script>
+</body>
+</html>
